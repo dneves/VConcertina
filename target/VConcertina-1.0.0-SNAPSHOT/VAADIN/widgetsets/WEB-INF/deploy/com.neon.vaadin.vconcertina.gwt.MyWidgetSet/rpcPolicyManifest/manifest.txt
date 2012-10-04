@@ -1,2 +1,0 @@
-# Module com.neon.vaadin.vconcertina.gwt.MyWidgetSet
-# RPC service class, partial path of RPC policy file
