@@ -1,6 +1,6 @@
 package com.neon.vaadin.vconcertina;
 
-import com.neon.vaadin.vconcertina.listener.VConcertinaTabActionListener;
+import com.neon.vaadin.vconcertina.listener.VConcertinaTabHeaderActionListener;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
@@ -8,7 +8,7 @@ import com.vaadin.ui.Label;
 
 public class VConcertinaTabHeader extends HorizontalLayout implements VConcertinaTabHeaderInterface {
 
-	private VConcertinaTabActionListener actionListener = null;
+	private VConcertinaTabHeaderActionListener actionListener = null;
 
 	private final Label labelCaption = new Label();
 
@@ -102,7 +102,7 @@ public class VConcertinaTabHeader extends HorizontalLayout implements VConcertin
 		buttonMaximize.setVisible(isMaximizable);
 	}
 
-	public void setActionListener(VConcertinaTabActionListener listener) {
+	public void setActionListener(VConcertinaTabHeaderActionListener listener) {
 		this.actionListener = listener;
 	}
 

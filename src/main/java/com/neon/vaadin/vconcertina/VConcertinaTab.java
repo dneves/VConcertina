@@ -1,6 +1,6 @@
 package com.neon.vaadin.vconcertina;
 
-import com.neon.vaadin.vconcertina.listener.VConcertinaTabActionListener;
+import com.neon.vaadin.vconcertina.listener.VConcertinaTabHeaderActionListener;
 import com.vaadin.event.LayoutEvents;
 import com.vaadin.ui.Component;
 
@@ -10,7 +10,7 @@ public class VConcertinaTab implements VConcertinaTabInterface {
 
 	private final VConcertinaTabHeader tabHeader = new VConcertinaTabHeader();
 
-	private final VConcertinaTabContent tabContent = new VConcertinaTabContent();
+	private final VConcertinaTabContent tabContent = new VConcertinaTabContent( this );
 
 	private boolean closable = false;
 
@@ -30,7 +30,7 @@ public class VConcertinaTab implements VConcertinaTabInterface {
 			tabContent.addComponent( component );
 		}
 		tabHeader.setCaption( caption );
-		tabHeader.setActionListener( new VConcertinaTabActionListener() {
+		tabHeader.setActionListener( new VConcertinaTabHeaderActionListener() {
 			@Override
 			public void closeTab() {
 				VConcertinaTab.this.vConcertina.removeTab( VConcertinaTab.this );
