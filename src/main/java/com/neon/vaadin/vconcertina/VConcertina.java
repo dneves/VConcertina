@@ -211,6 +211,38 @@ public class VConcertina extends CustomComponent {
 	}
 
 	/**
+	 * Should enable/disable the entire concertina.
+	 *
+	 * @param enabled    true to enable; false to disable
+	 */
+	@Override
+	public void setEnabled( boolean enabled ) {
+		super.setEnabled( enabled );
+	}
+
+	/**
+	 * Should enable/disable a tab component.
+	 *
+	 * @param tabInterface    the tab component to enable/disable
+	 * @param enabled	true to enable; false to disable
+	 */
+	public void setEnabled( VConcertinaTabInterface tabInterface, boolean enabled ) {
+		ComponentContainer componentContainer = components.get( tabInterface );
+		if ( componentContainer != null ) {
+			componentContainer.setEnabled( enabled );
+		}
+	}
+
+	public boolean isEnabled( VConcertinaTabInterface tabInterface ) {
+		boolean result = false;
+		ComponentContainer componentContainer = components.get( tabInterface );
+		if ( componentContainer != null ) {
+			result = componentContainer.isEnabled();
+		}
+		return result;
+	}
+
+	/**
 	 *
 	 * @return true if only one tab maximized allowed; false otherwise. Defaults to false.
 	 */

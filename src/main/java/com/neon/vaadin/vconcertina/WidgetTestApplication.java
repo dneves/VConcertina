@@ -58,16 +58,24 @@ public class WidgetTestApplication extends Application {
 				vConcertina.addTab( createTab( vConcertina, vConcertina.getComponentCount() + 1 ) );
 			}
 		} );
+		Button enable = new Button( "TOGGLE ENABLE" );
+		enable.addListener( new Button.ClickListener() {
+			@Override
+			public void buttonClick( Button.ClickEvent event ) {
+				vConcertina.setEnabled( ! vConcertina.isEnabled() );
+			}
+		});
 
 		HorizontalLayout horizontalLayout = new HorizontalLayout();
 		horizontalLayout.addComponent(toggleSingle);
 		horizontalLayout.addComponent(addTab);
+		horizontalLayout.addComponent( enable );
 
 		window.addComponent( horizontalLayout );
 	    window.addComponent( vConcertina );
     }
 
-	private VConcertinaTabInterface createTab( VConcertina vConcertina, int index ) {
+	private VConcertinaTabInterface createTab( final VConcertina vConcertina, int index ) {
 		VerticalLayout layout = new VerticalLayout();
 		layout.setSpacing( true );
 		layout.setMargin( true );
@@ -99,12 +107,20 @@ public class WidgetTestApplication extends Application {
 				tabInterface.setClosable(!tabInterface.isClosable());
 			}
 		});
+		Button button3 = new Button( "TOGGLE ENABLE" );
+		button3.addListener( new Button.ClickListener() {
+			@Override
+			public void buttonClick( Button.ClickEvent event ) {
+				vConcertina.setEnabled( tabInterface, ! vConcertina.isEnabled( tabInterface ) );
+			}
+		});
 
 		HorizontalLayout horizontalLayout = new HorizontalLayout();
 		horizontalLayout.setSpacing( true );
 		horizontalLayout.addComponent( button );
 		horizontalLayout.addComponent( button1 );
 		horizontalLayout.addComponent( button2 );
+		horizontalLayout.addComponent( button3 );
 
 		layout.addComponent( horizontalLayout );
 
