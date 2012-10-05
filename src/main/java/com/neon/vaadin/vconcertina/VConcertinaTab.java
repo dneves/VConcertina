@@ -98,8 +98,13 @@ public class VConcertinaTab implements VConcertinaTabInterface {
 	}
 
 	@Override
-	public void setCaption(String caption) {
-		tabHeader.setCaption( caption );
+	public String getTitle() {
+		return tabHeader.getTitle();
+	}
+
+	@Override
+	public void setTitle( String caption ) {
+		tabHeader.setTitle( caption );
 	}
 
 }

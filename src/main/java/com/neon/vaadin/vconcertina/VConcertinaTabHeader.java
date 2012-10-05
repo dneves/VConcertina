@@ -85,10 +85,25 @@ public class VConcertinaTabHeader extends HorizontalLayout implements VConcertin
 		});
 	}
 
+
 	@Override
-	public void setCaption(String caption) {
+	public void setCaption( String caption ) {
+		setTitle( caption );
+	}
+
+	@Override
+	public String getCaption() {
+		return null;
+	}
+
+	public void setTitle(String caption) {
 		labelCaption.setValue( caption );
 	}
+
+	public String getTitle() {
+		return labelCaption.getValue() == null ? null : labelCaption.getValue().toString();
+	}
+
 
 	public void setClosable(boolean isClosable) {
 		buttonClose.setVisible(isClosable);

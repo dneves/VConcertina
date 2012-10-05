@@ -55,6 +55,13 @@ public interface VConcertinaTabInterface {
 	 *
 	 * @param caption    the new tab caption
 	 */
-	public void setCaption( String caption );
+	public void setTitle( String caption );
+
+	/**
+	 * Gets the tab component caption.
+	 *
+	 * @return	the tab caption
+	 */
+	public String getTitle();
 
 }

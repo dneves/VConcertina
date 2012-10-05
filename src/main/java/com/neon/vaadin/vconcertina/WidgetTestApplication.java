@@ -1,5 +1,6 @@
 package com.neon.vaadin.vconcertina;
 
+import com.neon.vaadin.vconcertina.listener.VConcertinaListener;
 import com.vaadin.Application;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -12,18 +13,58 @@ import com.vaadin.ui.Window;
 public class WidgetTestApplication extends Application {
     @Override
     public void init() {
-		Window window = new Window( "VConcertina Widget Test App" );
+		final Window window = new Window( "VConcertina Widget Test App" );
 		setMainWindow(window);
 
-
-	    VConcertina vConcertina = new VConcertina();
+	    final VConcertina vConcertina = new VConcertina();
 	    vConcertina.setSingle( true );
+		vConcertina.addListener( new VConcertinaListener() {
+			@Override
+			public void tabAdded( VConcertinaTabInterface tabInterface ) {
+				window.showNotification( "tab added : " + tabInterface.getTitle(), Window.Notification.TYPE_HUMANIZED_MESSAGE );
+			}
+
+			@Override
+			public void tabRemoved( VConcertinaTabInterface tabInterface ) {
+				window.showNotification( "tab removed : " + tabInterface.getTitle(), Window.Notification.TYPE_HUMANIZED_MESSAGE );
+			}
+
+			@Override
+			public void tabMinimized( VConcertinaTabInterface tabInterface ) {
+				window.showNotification( "tab minimized : " + tabInterface.getTitle(), Window.Notification.TYPE_HUMANIZED_MESSAGE );
+			}
+
+			@Override
+			public void tabMaximized( VConcertinaTabInterface tabInterface ) {
+				window.showNotification( "tab maximized : " + tabInterface.getTitle(), Window.Notification.TYPE_HUMANIZED_MESSAGE );
+			}
+		});
+		for ( int i = 1; i <= 10; i++ ) {
+			vConcertina.addTab( createTab( vConcertina, i ) );
+		}
+
+		Button toggleSingle = new Button( "TOGGLE SINGLE" );
+		toggleSingle.addListener( new Button.ClickListener() {
+			@Override
+			public void buttonClick( Button.ClickEvent event ) {
+				vConcertina.setSingle( ! vConcertina.isSingle() );
+				window.showNotification( "single = " + vConcertina.isSingle(), Window.Notification.TYPE_HUMANIZED_MESSAGE );
+			}
+		});
+		Button addTab = new Button( "ADD NEW" );
+		addTab.addListener( new Button.ClickListener() {
+			@Override
+			public void buttonClick( Button.ClickEvent event ) {
+				vConcertina.addTab( createTab( vConcertina, vConcertina.getComponentCount() + 1 ) );
+			}
+		} );
+
+		HorizontalLayout horizontalLayout = new HorizontalLayout();
+		horizontalLayout.addComponent(toggleSingle);
+		horizontalLayout.addComponent(addTab);
+
+		window.addComponent( horizontalLayout );
 	    window.addComponent( vConcertina );
-
-	    for ( int i = 1; i <= 10; i++ ) {
-		    vConcertina.addTab( createTab( vConcertina, i ) );
-	    }
-
     }
 
 	private VConcertinaTabInterface createTab( VConcertina vConcertina, int index ) {
