@@ -67,6 +67,7 @@ public class WidgetTestApplication extends Application {
 		});
 
 		HorizontalLayout horizontalLayout = new HorizontalLayout();
+	    horizontalLayout.setSpacing( true );
 		horizontalLayout.addComponent(toggleSingle);
 		horizontalLayout.addComponent(addTab);
 		horizontalLayout.addComponent( enable );

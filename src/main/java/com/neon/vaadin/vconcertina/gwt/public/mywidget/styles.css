@@ -1,3 +1,19 @@
-/* Widget specific CSS goes here */
 /* When renaming this directory, update the path in the widgetset GWT module (.gwt.xml) */
 
+.v-concertina {
+    border-bottom: solid 1px #aaa;
+}
+
+.v-concertina-tab {
+    border: solid 1px #aaa;
+    border-bottom:none;
+    background:#ccc;
+}
+
+.v-concertina-tab-header {
+
+}
+
+.v-concertina-tab-content {
+    background:#fff;
+}

@@ -31,6 +31,8 @@ public class VConcertina extends CustomComponent {
 	 */
 	private final AnimatorProxy animatorProxy = new AnimatorProxy();
 
+	private final String CSS = "v-concertina";
+
 	/**
 	 * list of listeners
 	 */
@@ -83,7 +85,7 @@ public class VConcertina extends CustomComponent {
 			}
 		});
 		layout.addComponent( animatorProxy );
-		addStyleName( "v-concertina" );
+		addStyleName( CSS );
 	}
 
 	/**
@@ -119,12 +121,12 @@ public class VConcertina extends CustomComponent {
 		tabs.add(tabInterface);
 
 		VConcertinaTabHeaderInterface tabHeaderInterface = tabInterface.getTabHeader();
-		tabHeaderInterface.addStyleName( "v-concertina-tab-header" );
+		tabHeaderInterface.addStyleName( CSS + "-tab-header" );
 		VConcertinaTabContent tabContent = tabInterface.getTabContent();
-		tabContent.addStyleName( "v-concertina-tab-content" );
+		tabContent.addStyleName( CSS + "-tab-content" );
 
 		CssLayout cssLayout = new CssLayout();
-		cssLayout.addStyleName( "v-concertina-tab" );
+		cssLayout.addStyleName( CSS + "-tab" );
 		cssLayout.addComponent( tabHeaderInterface );
 		// tabContent will be added/removed by the animator
 //		cssLayout.addComponent( tabContent );
