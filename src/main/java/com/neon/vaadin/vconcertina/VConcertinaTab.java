@@ -26,9 +26,11 @@ public class VConcertinaTab implements VConcertinaTabInterface {
 	public VConcertinaTab( VConcertina vConcertina, String caption, Component component ) {
 		this.vConcertina = vConcertina;
 
-		if ( component != null ) {
-			tabContent.addComponent( component );
-		}
+//		if ( component != null ) {
+//			tabContent.addComponent( component );
+//		}
+		tabContent.setComponent( component );
+
 		tabHeader.setCaption( caption );
 		tabHeader.setActionListener( new VConcertinaTabHeaderActionListener() {
 			@Override

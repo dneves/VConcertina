@@ -8,6 +8,7 @@ import com.vaadin.ui.CustomComponent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -198,6 +199,12 @@ public class VConcertina extends CustomComponent {
 	@Override
 	public int getComponentCount() {
 		return tabs.size();
+	}
+
+	@Override
+	public Iterator<Component> getComponentIterator() {
+		return new VConcertinaComponentIterator( tabs );
+
 	}
 
 	@Override

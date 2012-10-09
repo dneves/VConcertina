@@ -1,10 +1,13 @@
 package com.neon.vaadin.vconcertina;
 
+import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 
 public class VConcertinaTabContent extends CssLayout {
 
 	private final VConcertinaTabInterface tabInterface;
+
+	private Component component;
 
 	public VConcertinaTabContent( VConcertinaTabInterface tabInterface ) {
 		if ( tabInterface == null ) {
@@ -20,5 +23,14 @@ public class VConcertinaTabContent extends CssLayout {
 	 */
 	public VConcertinaTabInterface getTabInterface() {
 		return tabInterface;
+	}
+
+	public Component getComponent() {
+		return component;
+	}
+
+	public void setComponent(Component component) {
+		this.component = component;
+		this.addComponent( component );
 	}
 }

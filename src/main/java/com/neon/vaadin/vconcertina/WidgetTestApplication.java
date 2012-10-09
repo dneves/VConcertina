@@ -116,14 +116,14 @@ public class WidgetTestApplication extends Application {
 			}
 		});
 
-		HorizontalLayout horizontalLayout = new HorizontalLayout();
-		horizontalLayout.setSpacing( true );
-		horizontalLayout.addComponent( button );
-		horizontalLayout.addComponent( button1 );
-		horizontalLayout.addComponent( button2 );
-		horizontalLayout.addComponent( button3 );
-
-		layout.addComponent( horizontalLayout );
+//		HorizontalLayout horizontalLayout = new HorizontalLayout();
+//		horizontalLayout.setSpacing( true );
+//		horizontalLayout.addComponent( button );
+//		horizontalLayout.addComponent( button1 );
+//		horizontalLayout.addComponent( button2 );
+//		horizontalLayout.addComponent( button3 );
+//
+//		layout.addComponent( horizontalLayout );
 
 		return tabInterface;
 	}

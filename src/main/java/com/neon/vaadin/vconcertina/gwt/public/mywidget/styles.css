@@ -7,13 +7,18 @@
 .v-concertina-tab {
     border: solid 1px #aaa;
     border-bottom:none;
-    background:#ccc;
+    /*background:#ccc;*/
 }
 
 .v-concertina-tab-header {
-
+    cursor: pointer;
+    background: url( 'grad-light-top.png' );
+}
+.v-concertina-tab-header .v-label {
+    cursor: pointer;
 }
 
 .v-concertina-tab-content {
-    background:#fff;
+    /*background:#fff;*/
+    border-top: 1px solid #aaa;
 }
